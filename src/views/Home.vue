@@ -80,13 +80,11 @@ export default {
       clearInterval(this.timer)
       this.status = 0
       this.$store.commit('finish')
-
       if (!skip) {
         const audio = new Audio()
         audio.src = './alarms/' + this.alarm
         audio.play()
       }
-
       if (this.todos.length > 0) {
         this.start()
       } else {
@@ -99,4 +97,5 @@ export default {
     }
   }
 }
+
 </script>

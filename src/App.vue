@@ -10,6 +10,3 @@
     </keep-alive>
   </div>
 </template>
-
-<style lang="stylus">
-</style>
