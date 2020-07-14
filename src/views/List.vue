@@ -1,10 +1,10 @@
 <template>
   <div id="list">
     <b-form-input v-model="newtodo"></b-form-input>
-    <b-btn variant="success" @click="addTodo">新增</b-btn>
+    <b-btn variant="warning" @click="addTodo">新增</b-btn>
     <b-table-simple>
       <b-thead>
-        <b-tr>
+        <b-tr class="text-white">
           <b-th>事項</b-th>
           <b-th>動作</b-th>
         </b-tr>
@@ -19,13 +19,13 @@
             <b-btn variant="link" class="text-danger" v-if="todo.edit" @click="cancelTodo(index)">
               <font-awesome-icon :icon="['fas','undo']"></font-awesome-icon>
             </b-btn>
-            <b-btn variant="link" class="text-success" v-if="todo.edit" @click="saveTodo(index)">
+            <b-btn variant="link" class="text-warning" v-if="todo.edit" @click="saveTodo(index)">
               <font-awesome-icon :icon="['fas','save']"></font-awesome-icon>
             </b-btn>
-            <span v-else>{{ todo.name }}</span>
+            <span v-else class="text-white">{{ todo.name }}</span>
           </b-td>
           <b-td>
-            <b-btn variant="link" class="text-primary" @click="editTodo(index)">
+            <b-btn variant="link" class="text-white" @click="editTodo(index)">
               <font-awesome-icon :icon="['fas','pen']"></font-awesome-icon>
             </b-btn>
             <b-btn variant="link" class="text-danger" @click="delTodo(index)">
@@ -50,7 +50,10 @@ export default {
   },
   methods: {
     addTodo () {
-      this.$store.commit('addTodo', this.newtodo)
+      if (this.newtodo.length > 0) {
+        this.$store.commit('addTodo', this.newtodo)
+        this.newtodo = ''
+      }
     },
     delTodo (index) {
       this.$store.commit('delTodo', index)
@@ -78,3 +81,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+#list
+  color white
+</style>

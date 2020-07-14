@@ -18,10 +18,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCheck, faPen, faTimes, faUndo, faSave, faPlay, faPause, faStepForward } from '@fortawesome/free-solid-svg-icons'
 
-import VueGtag from "vue-gtag";
+import VueGtag from 'vue-gtag'
+import VueEllipseProgress from 'vue-ellipse-progress'
 Vue.use(VueGtag, {
-  config: { id: "UA-168247792-1" }
-});
+  config: { id: 'UA-168247792-1' }
+})
+Vue.use(VueEllipseProgress)
 
 Vue.config.productionTip = false
 library.add(faCheck, faPen, faTimes, faUndo, faSave, faPlay, faPause, faStepForward)

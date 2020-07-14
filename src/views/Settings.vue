@@ -1,6 +1,7 @@
 <template>
   <div id="settings">
-    <b-table :items="items" :fields="fields" @row-clicked="selectAlarm">
+    <div class="b-table">
+    <b-table variant="warning" :items="items" :fields="fields" @row-clicked="selectAlarm">
       <template v-slot:cell(preview)="data">
         <audio controls :src="'./alarms/'+data.item.file"></audio>
       </template>
@@ -8,6 +9,7 @@
         <font-awesome-icon v-if="data.item.file ==alarm" :icon="['fas','check']"></font-awesome-icon>
       </template>
     </b-table>
+    </div>
   </div>
 </template>
 
@@ -17,16 +19,24 @@ export default {
     return {
       items: [
         {
-          name: '鬧鈴',
-          file: 'alarm1.mp3'
+          name: 'swing',
+          file: 'swing.wav'
         },
         {
-          name: 'yay',
-          file: 'yay.mp3'
+          name: 'cello',
+          file: 'cello.wav'
         },
         {
-          name: 'Lion King',
-          file: 'lionking.mp3'
+          name: 'piano',
+          file: 'piano.wav'
+        },
+        {
+          name: 'drum',
+          file: 'drum.wav'
+        },
+        {
+          name: 'softcello',
+          file: 'softcello.wav'
         }
       ],
       fields: [
@@ -57,3 +67,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.b-table
+  color white
+</style>
